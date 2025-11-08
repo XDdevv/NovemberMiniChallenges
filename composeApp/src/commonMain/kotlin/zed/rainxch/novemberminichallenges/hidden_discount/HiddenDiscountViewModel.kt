@@ -2,9 +2,11 @@ package zed.rainxch.novemberminichallenges.hidden_discount
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -36,6 +38,9 @@ class HiddenDiscountViewModel : ViewModel() {
             initialValue = HiddenDiscountState()
         )
 
+    private val _events = Channel<HiddenDiscountEvents>()
+    val events = _events.receiveAsFlow()
+
     private fun loadData() {
         viewModelScope.launch {
             val carts = listOf(
@@ -65,6 +70,10 @@ class HiddenDiscountViewModel : ViewModel() {
                             promoCode = PromoCode(25f)
                         )
                     }
+
+                    viewModelScope.launch {
+                        _events.send(HiddenDiscountEvents.OnMessage("Discount applied"))
+                    }
                 } else {
                     _state.update {
                         it.copy(
@@ -85,22 +94,27 @@ class HiddenDiscountViewModel : ViewModel() {
             }
 
             is HiddenDiscountAction.OnCartItemPromoCollapsed -> {
-                _state.update { it.copy(
-                    carts = it.carts.map { cartItem ->
-                        if (action.cartItem.name == cartItem.name) {
-                            cartItem.copy(isDiscountRevealed = false)
-                        } else cartItem
-                    }
-                ) }
+                _state.update {
+                    it.copy(
+                        carts = it.carts.map { cartItem ->
+                            if (action.cartItem.name == cartItem.name) {
+                                cartItem.copy(isDiscountRevealed = false)
+                            } else cartItem
+                        }
+                    )
+                }
             }
+
             is HiddenDiscountAction.OnCartItemPromoExpanded -> {
-                _state.update { it.copy(
-                    carts = it.carts.map { cartItem ->
-                        if (action.cartItem.name == cartItem.name) {
-                            cartItem.copy(isDiscountRevealed = true)
-                        } else cartItem
-                    }
-                ) }
+                _state.update {
+                    it.copy(
+                        carts = it.carts.map { cartItem ->
+                            if (action.cartItem.name == cartItem.name) {
+                                cartItem.copy(isDiscountRevealed = true)
+                            } else cartItem
+                        }
+                    )
+                }
             }
 
             else -> {}

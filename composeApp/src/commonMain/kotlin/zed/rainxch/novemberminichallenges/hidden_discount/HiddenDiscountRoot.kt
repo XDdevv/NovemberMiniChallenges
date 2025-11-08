@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,8 +15,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -43,6 +47,7 @@ import kotlinx.coroutines.launch
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.HiddenDiscountColors
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.hostGroteskFont
+import zed.rainxch.novemberminichallenges.core.presentation.utils.ObserveAsEvents
 import zed.rainxch.novemberminichallenges.hidden_discount.components.CartItem
 import zed.rainxch.novemberminichallenges.hidden_discount.components.CartPromoCode
 import zed.rainxch.novemberminichallenges.hidden_discount.components.DiscountSnackbar
@@ -58,6 +63,16 @@ fun HiddenDiscountRoot(
     val snackbarHostState = remember { SnackbarHostState() }
     val clipboardHelper = rememberClipboardHelper()
     val coroutineScope = rememberCoroutineScope()
+
+    ObserveAsEvents(viewModel.events) { event ->
+        when (event) {
+            is HiddenDiscountEvents.OnMessage -> {
+                coroutineScope.launch {
+                    snackbarHostState.showSnackbar(event.message)
+                }
+            }
+        }
+    }
 
     HiddenDiscountScreen(
         state = state,
@@ -89,11 +104,6 @@ fun HiddenDiscountScreen(
     snackbarHostState: SnackbarHostState
 ) {
     Scaffold(
-        snackbarHost = {
-            SnackbarHost(snackbarHostState) { data ->
-                DiscountSnackbar(data)
-            }
-        },
         topBar = {
             CenterAlignedTopAppBar(
                 title = {
@@ -187,6 +197,34 @@ fun HiddenDiscountScreen(
                             fontSize = 16.sp
                         )
                     }
+                }
+
+                Spacer(Modifier.height(24.dp))
+
+                Button(
+                    onClick = {},
+                    shape = CutCornerShape(0.dp),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = HiddenDiscountColors.textPrimary,
+                        contentColor = HiddenDiscountColors.textAlt
+                    ),
+                    modifier = Modifier.fillMaxWidth(),
+                    contentPadding = PaddingValues(vertical = 14.dp)
+                ) {
+                    Text(
+                        text = "Buy",
+                        fontFamily = hostGroteskFont(),
+                        fontWeight = FontWeight.Medium,
+                        fontSize = 16.sp,
+                    )
+                }
+
+                if (snackbarHostState.currentSnackbarData != null) {
+                    SnackbarHost(snackbarHostState) { data ->
+                        DiscountSnackbar(data)
+                    }
+                } else {
+                    Spacer(Modifier.height(72.dp))
                 }
             }
         },
