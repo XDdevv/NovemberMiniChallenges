@@ -14,3 +14,15 @@ object HiddenDiscountColors {
     val discount = Color(0xff7C1414)
     val snackbar = Color(0xff211304).copy(alpha = .7f)
 }
+
+object LongPressCompareColors {
+    val bg = Color(0xffEDF0F6)
+    val surface = Color(0xffFFFFFF)
+    val outline = Color(0xffD8E4EA)
+    val textPrimary = Color(0xff041221)
+    val textSecondary = Color(0xff526881)
+    val textDisabled = Color(0xffA8B7BF)
+    val textAlt = Color(0xffFFFFFF)
+    val brand = Color(0xff4291FF)
+    val discount = Color(0xffE6556F)
+}
