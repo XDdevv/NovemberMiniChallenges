@@ -5,7 +5,8 @@ import zed.rainxch.novemberminichallenges.long_press_compare.models.Phone
 
 data class LongPressCompareState(
     val phones: List<LongPressPhone> = listOf(),
-    val selectedPhones: Pair<Phone?, Phone?> = null to null
+    val selectedPhones: Pair<Phone?, Phone?> = null to null,
+    val isShowingComparison: Boolean = false,
 )
 
 /*
