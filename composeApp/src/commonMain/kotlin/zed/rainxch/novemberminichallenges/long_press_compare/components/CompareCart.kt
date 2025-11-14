@@ -85,12 +85,14 @@ fun CompareCartItem(
             .padding(8.dp),
     ) {
         Box(
-            Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(cartItem.phone.imageRes),
                 contentDescription = null,
-                modifier = Modifier.size(170.dp)
+                modifier = Modifier.size(170.dp),
+                alignment = Alignment.Center
             )
 
             cartItem.phone.discount?.let { discount ->

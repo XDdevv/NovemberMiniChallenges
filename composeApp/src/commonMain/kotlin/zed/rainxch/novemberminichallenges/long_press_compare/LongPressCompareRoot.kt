@@ -20,6 +20,9 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.platform.LocalViewConfiguration
+import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -53,6 +56,9 @@ fun LongPressCompareScreen(
     state: LongPressCompareState,
     onAction: (LongPressCompareAction) -> Unit,
 ) {
+    val windowSize = LocalWindowInfo.current
+    val density = LocalDensity.current
+
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -176,12 +182,20 @@ fun LongPressCompareScreen(
                     .padding(8.dp)
             )
         } else {
+            val widthDp = with(density) { windowSize.containerSize.width.toDp() }
+
+            val gridCells = when {
+                widthDp < 600.dp -> 2
+                widthDp < 840.dp -> 3
+                else -> 5
+            }
+
             LazyVerticalGrid(
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(innerPadding)
                     .padding(8.dp),
-                columns = GridCells.Fixed(2),
+                columns = GridCells.Fixed(gridCells),
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
