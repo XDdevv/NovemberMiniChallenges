@@ -3,7 +3,6 @@ package zed.rainxch.novemberminichallenges.long_press_compare.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -23,10 +22,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.dropShadow
-import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.DpOffset
@@ -36,9 +33,7 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.LongPressCompareColors
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.hostGroteskFont
-import zed.rainxch.novemberminichallenges.hidden_discount.model.CartItem
 import zed.rainxch.novemberminichallenges.long_press_compare.models.LongPressPhone
-import zed.rainxch.novemberminichallenges.long_press_compare.models.Phone
 import kotlin.math.round
 
 @Composable

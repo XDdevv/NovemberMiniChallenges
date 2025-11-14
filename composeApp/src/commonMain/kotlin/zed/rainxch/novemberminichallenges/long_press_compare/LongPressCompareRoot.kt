@@ -21,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.platform.LocalViewConfiguration
 import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -36,7 +35,6 @@ import zed.rainxch.novemberminichallenges.core.presentation.design_system.LongPr
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.hostGroteskFont
 import zed.rainxch.novemberminichallenges.long_press_compare.components.CompareCartItem
 import zed.rainxch.novemberminichallenges.long_press_compare.dialogs.LongPressComparison
-import zed.rainxch.novemberminichallenges.long_press_compare.models.Phone
 
 @Composable
 fun LongPressCompareRoot(
