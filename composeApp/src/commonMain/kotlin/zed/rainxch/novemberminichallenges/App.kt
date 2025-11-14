@@ -11,4 +11,6 @@ fun App() {
     LongPressCompareRoot(
         viewModel = LongPressCompareViewModel()
     )
+
+    // OOpie dopie
 }
