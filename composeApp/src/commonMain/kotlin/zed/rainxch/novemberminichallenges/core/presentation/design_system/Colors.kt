@@ -26,3 +26,14 @@ object LongPressCompareColors {
     val brand = Color(0xff4291FF)
     val discount = Color(0xffE6556F)
 }
+
+object CircularStockTrackerColors {
+    val bg = Color(0xffF6F2ED)
+    val surface = Color(0xffFFFFFF)
+    val outline = Color(0xffDFDDDB)
+    val textPrimary = Color(0xff211304)
+    val textSecondary = Color(0xff6B5D4F)
+    val textDisabled = Color(0xff9A9795)
+    val textAlt = Color(0xffFFFFFF)
+    val discount = Color(0xff7C1414)
+}
