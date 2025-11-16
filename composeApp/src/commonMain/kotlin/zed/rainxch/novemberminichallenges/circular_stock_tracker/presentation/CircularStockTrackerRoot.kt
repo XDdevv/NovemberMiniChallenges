@@ -1,6 +1,11 @@
 package zed.rainxch.novemberminichallenges.circular_stock_tracker.presentation
 
+import androidx.compose.animation.Animatable
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.scaleOut
 import androidx.compose.animation.togetherWith
@@ -27,6 +32,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -227,10 +233,16 @@ fun CircularStockTrackerScreen(
                     Box(
                         contentAlignment = Alignment.Center
                     ) {
+                        val progress = remember { Animatable(0f) }
+                        LaunchedEffect(state.remainingDiscountPrice) {
+                            progress.animateTo(
+                                targetValue = state.remainingDiscountPrice / 50f,
+                                animationSpec = spring(Spring.DampingRatioHighBouncy)
+                            )
+                        }
+
                         CircularProgressIndicator(
-                            progress = {
-                                (state.remainingDiscountPrice) / 50f
-                            },
+                            progress = { progress.value },
                             color = CircularStockTrackerColors.discount,
                             trackColor = CircularStockTrackerColors.outline,
                             strokeCap = StrokeCap.Square,
@@ -279,7 +291,7 @@ fun CircularStockTrackerScreen(
                     enabled = state.remainingDiscountPrice >= 1
                 ) {
                     Text(
-                        text = if(state.remainingDiscountPrice >= 1) {
+                        text = if (state.remainingDiscountPrice >= 1) {
                             "Buy"
                         } else "Out if Stock",
                         fontFamily = hostGroteskFont(),
