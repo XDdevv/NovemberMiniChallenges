@@ -4,30 +4,27 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 
 class CircularStockTrackerViewModel : ViewModel() {
 
     private var hasLoadedInitialData = false
 
     private val _state = MutableStateFlow(CircularStockTrackerState())
-    val state = _state
-        .onStart {
-            if (!hasLoadedInitialData) {
-                /** Load initial data here **/
-                hasLoadedInitialData = true
-            }
-        }
-        .stateIn(
-            scope = viewModelScope,
-            started = SharingStarted.WhileSubscribed(5_000L),
-            initialValue = CircularStockTrackerState()
-        )
+    val state = _state.asStateFlow()
 
     fun onAction(action: CircularStockTrackerAction) {
         when (action) {
-            else -> TODO("Handle actions")
+            CircularStockTrackerAction.OnBuyClick -> {
+                _state.update {
+                    it.copy(
+                        remainingDiscountPrice = it.remainingDiscountPrice - 1
+                    )
+                }
+            }
         }
     }
 
