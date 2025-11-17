@@ -37,3 +37,12 @@ object CircularStockTrackerColors {
     val textAlt = Color(0xffFFFFFF)
     val discount = Color(0xff7C1414)
 }
+
+object GlobalDealColors {
+    val bg = Color(0xffF6F2ED)
+    val surface = Color(0xffFFFFFF)
+    val textPrimary = Color(0xff211304)
+    val textDisabled = Color(0xff9A9795)
+    val textAlt = Color(0xffFFFFFF)
+    val discount = Color(0xff7C1414)
+}
