@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,7 +16,10 @@ import androidx.compose.ui.unit.sp
 import org.jetbrains.compose.resources.painterResource
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.GlobalDealColors
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.hostGroteskFont
-import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Language
+import zed.rainxch.novemberminichallenges.global_deals.domain.model.Language
+import zed.rainxch.novemberminichallenges.global_deals.presentation.models.displayText
+import zed.rainxch.novemberminichallenges.global_deals.presentation.models.image
+import zed.rainxch.novemberminichallenges.global_deals.presentation.models.localeKey
 
 @Composable
 fun PopupLanguage(

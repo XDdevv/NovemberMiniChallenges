@@ -8,6 +8,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import zed.rainxch.novemberminichallenges.global_deals.data.AndroidLanguagePreferences
+import zed.rainxch.novemberminichallenges.global_deals.presentation.models.localeKey
 import java.util.Locale
 
 class MainActivity : ComponentActivity() {
@@ -30,8 +32,8 @@ class MainActivity : ComponentActivity() {
 }
 
 private fun applyLanguage(context: Context): Context {
-    val prefs = context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-    val languageCode = prefs.getString("language", null) ?: return context
+    val languagePreferences = AndroidLanguagePreferences(context)
+    val languageCode = languagePreferences.getCurrentLanguage().localeKey()
 
     val locale = Locale(languageCode)
     Locale.setDefault(locale)

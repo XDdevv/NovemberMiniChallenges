@@ -41,13 +41,17 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 import zed.rainxch.novemberminichallenges.changeLanguage
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.GlobalDealColors
 import zed.rainxch.novemberminichallenges.core.presentation.design_system.hostGroteskFont
+import zed.rainxch.novemberminichallenges.global_deals.data.languagePreferences
 import zed.rainxch.novemberminichallenges.global_deals.presentation.components.PopupLanguage
 import zed.rainxch.novemberminichallenges.global_deals.presentation.components.ProductItem
-import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Language
+import zed.rainxch.novemberminichallenges.global_deals.domain.model.Language
+import zed.rainxch.novemberminichallenges.global_deals.presentation.models.image
 
 @Composable
 fun GlobalDealsRoot(
-    viewModel: GlobalDealsViewModel = viewModel()
+    viewModel: GlobalDealsViewModel = viewModel {
+        GlobalDealsViewModel(languagePreferences())
+    }
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
 

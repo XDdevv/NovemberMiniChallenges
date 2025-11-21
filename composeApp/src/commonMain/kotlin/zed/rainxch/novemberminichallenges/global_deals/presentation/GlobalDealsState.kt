@@ -1,6 +1,6 @@
 package zed.rainxch.novemberminichallenges.global_deals.presentation
 
-import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Language
+import zed.rainxch.novemberminichallenges.global_deals.domain.model.Language
 import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Product
 
 data class GlobalDealsState(

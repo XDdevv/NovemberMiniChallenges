@@ -9,9 +9,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.platform.LocalContext
 import zed.rainxch.novemberminichallenges.core.presentation.utils.ClipboardHelper
-import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Language
+import zed.rainxch.novemberminichallenges.global_deals.domain.model.Language
 import java.util.Locale
 import androidx.core.content.edit
+import zed.rainxch.novemberminichallenges.global_deals.data.AndroidLanguagePreferences
+import zed.rainxch.novemberminichallenges.global_deals.presentation.models.localeKey
 
 @Composable
 actual fun rememberClipboardHelper(): ClipboardHelper {
@@ -30,9 +32,6 @@ actual fun rememberClipboardHelper(): ClipboardHelper {
 
 actual fun changeLanguage(language: Language) {
     val context = ContextProvider.context!!
-    context.getSharedPreferences("app_prefs", Context.MODE_PRIVATE)
-        .edit {
-            putString("language", language.localeKey())
-        }
+    AndroidLanguagePreferences(context).changeLanguage(language)
     (context as? Activity)?.recreate()
 }

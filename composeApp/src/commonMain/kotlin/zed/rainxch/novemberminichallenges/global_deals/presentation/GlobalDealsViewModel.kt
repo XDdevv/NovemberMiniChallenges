@@ -41,10 +41,13 @@ import novemberminichallenges.composeapp.generated.resources.product_8
 import novemberminichallenges.composeapp.generated.resources.product_8_discount_price
 import novemberminichallenges.composeapp.generated.resources.product_8_name
 import novemberminichallenges.composeapp.generated.resources.product_8_original_price
-import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Language
+import zed.rainxch.novemberminichallenges.global_deals.domain.LanguagePreferences
+import zed.rainxch.novemberminichallenges.global_deals.domain.model.Language
 import zed.rainxch.novemberminichallenges.global_deals.presentation.models.Product
 
-class GlobalDealsViewModel : ViewModel() {
+class GlobalDealsViewModel(
+    private val languagePreferences: LanguagePreferences
+) : ViewModel() {
 
     private var hasLoadedInitialData = false
 
@@ -132,12 +135,15 @@ class GlobalDealsViewModel : ViewModel() {
                 )
             )
 
-            val popupLanguages = listOf(Language.Spanish, Language.Arabic)
+            val popupLanguages = Language.entries.toMutableList()
+            val currentLanguage = languagePreferences.getCurrentLanguage()
+            popupLanguages.remove(currentLanguage)
 
             _state.update {
                 it.copy(
                     products = products,
-                    popupLanguages = popupLanguages
+                    popupLanguages = popupLanguages,
+                    selectedLanguage = currentLanguage
                 )
             }
 
