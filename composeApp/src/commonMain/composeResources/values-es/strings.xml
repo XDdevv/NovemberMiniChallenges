@@ -1,0 +1,42 @@
+<resources>
+    <!-- 1. Guess VINCENT Sneakers -->
+    <string name="product_1_name">Zapatillas Guess VINCENT</string>
+    <string name="product_1_original_price">€92</string>
+    <string name="product_1_discount_price">€148</string>
+
+    <!-- 2. Armani Exchange T-Shirt 2-pack -->
+    <string name="product_2_name">Pack de 2 Camisetas Armani Exchange</string>
+    <string name="product_2_original_price">€32</string>
+    <string name="product_2_discount_price">€75</string>
+
+    <!-- 3. Gant Cotton T-Shirt -->
+    <string name="product_3_name">Camiseta de Algodón Gant</string>
+    <string name="product_3_original_price">€42</string>
+    <string name="product_3_discount_price">€52</string>
+
+    <!-- 4. United Colors of Benetton Cotton Shirt -->
+    <string name="product_4_name">Camisa de Algodón United Colors of Benetton</string>
+    <string name="product_4_original_price">€25</string>
+    <string name="product_4_discount_price">€37</string>
+
+    <!-- 5. Benetton Linen Blend Polo -->
+    <string name="product_5_name">Polo de Lino United Colors of Benetton</string>
+    <string name="product_5_original_price">€47</string>
+    <string name="product_5_discount_price">€70</string>
+
+    <!-- 6. Daniel Wellington Watch -->
+    <string name="product_6_name">Reloj Daniel Wellington</string>
+    <string name="product_6_original_price">€142</string>
+    <string name="product_6_discount_price">€165</string>
+
+    <!-- 7. Calvin Klein Polo -->
+    <string name="product_7_name">Polo Calvin Klein</string>
+    <string name="product_7_original_price">€37</string>
+    <string name="product_7_discount_price">€96</string>
+
+    <!-- 8. Columbia Skien Valley Outdoor Jacket -->
+    <string name="product_8_name">Chaqueta Outdoor Columbia Skien Valley</string>
+    <string name="product_8_original_price">€80</string>
+    <string name="product_8_discount_price">€103</string>
+
+</resources>

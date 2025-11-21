@@ -1,0 +1,42 @@
+<resources>
+    <!-- 1. Guess VINCENT Sneakers -->
+    <string name="product_1_name">أحذية رياضية غيس فنسنت</string>
+    <string name="product_1_original_price">599 د.إ</string>
+    <string name="product_1_discount_price">370 د.إ</string>
+
+    <!-- 2. Armani Exchange T-Shirt 2-pack -->
+    <string name="product_2_name">حزمة من 2 تي شيرت من أرماني إكستشينج</string>
+    <string name="product_2_original_price">299 د.إ</string>
+    <string name="product_2_discount_price">129 د.إ</string>
+
+    <!-- 3. Gant Cotton T-Shirt -->
+    <string name="product_3_name">تي شيرت قطني من غانت</string>
+    <string name="product_3_original_price">209 د.إ</string>
+    <string name="product_3_discount_price">169 د.إ</string>
+
+    <!-- 4. United Colors of Benetton Cotton Shirt -->
+    <string name="product_4_name">قميص قطني من يونایتد كولورز أوف بينتون</string>
+    <string name="product_4_original_price">149 د.إ</string>
+    <string name="product_4_discount_price">100 د.إ</string>
+
+    <!-- 5. Benetton Linen Blend Polo -->
+    <string name="product_5_name">بولو بخليط الكتان من يونایتد كولورز أوف بينتون</string>
+    <string name="product_5_original_price">279 د.إ</string>
+    <string name="product_5_discount_price">190 د.إ</string>
+
+    <!-- 6. Daniel Wellington Watch -->
+    <string name="product_6_name">ساعة دانيال ويلينغتون</string>
+    <string name="product_6_original_price">659 د.إ</string>
+    <string name="product_6_discount_price">565 د.إ</string>
+
+    <!-- 7. Calvin Klein Polo -->
+    <string name="product_7_name">بولو كالفن كلاين</string>
+    <string name="product_7_original_price">389 د.إ</string>
+    <string name="product_7_discount_price">150 د.إ</string>
+
+    <!-- 8. Columbia Skien Valley Outdoor Jacket -->
+    <string name="product_8_name">سترة خارجية كولومبيا سكين فالي</string>
+    <string name="product_8_original_price">409 د.إ</string>
+    <string name="product_8_discount_price">320 د.إ</string>
+
+</resources>

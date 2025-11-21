@@ -1,0 +1,42 @@
+<resources>
+    <!-- 1. Guess VINCENT Sneakers -->
+    <string name="product_1_name">Guess VINCENT Sneakers</string>
+    <string name="product_1_original_price">$100</string>
+    <string name="product_1_discount_price">$160</string>
+
+    <!-- 2. Armani Exchange T-Shirt 2-pack -->
+    <string name="product_2_name">Armani Exchange T-Shirt 2-pack</string>
+    <string name="product_2_original_price">$35</string>
+    <string name="product_2_discount_price">$81</string>
+
+    <!-- 3. Gant Cotton T-Shirt -->
+    <string name="product_3_name">Gant Cotton T-Shirt</string>
+    <string name="product_3_original_price">$46</string>
+    <string name="product_3_discount_price">$57</string>
+
+    <!-- 4. United Colors of Benetton Cotton Shirt -->
+    <string name="product_4_name">United Colors of Benetton Cotton Shirt</string>
+    <string name="product_4_original_price">$27</string>
+    <string name="product_4_discount_price">$40</string>
+
+    <!-- 5. Benetton Linen Blend Polo -->
+    <string name="product_5_name">United Colors of Benetton Linen Blend Polo</string>
+    <string name="product_5_original_price">$51</string>
+    <string name="product_5_discount_price">$75</string>
+
+    <!-- 6. Daniel Wellington Watch -->
+    <string name="product_6_name">Daniel Wellington Watch</string>
+    <string name="product_6_original_price">$153</string>
+    <string name="product_6_discount_price">$177</string>
+
+    <!-- 7. Calvin Klein Polo -->
+    <string name="product_7_name">Calvin Klein Polo</string>
+    <string name="product_7_original_price">$40</string>
+    <string name="product_7_discount_price">$103</string>
+
+    <!-- 8. Columbia Skien Valley Outdoor Jacket -->
+    <string name="product_8_name">Columbia Skien Valley Outdoor Jacket</string>
+    <string name="product_8_original_price">$86</string>
+    <string name="product_8_discount_price">$111</string>
+
+</resources>
