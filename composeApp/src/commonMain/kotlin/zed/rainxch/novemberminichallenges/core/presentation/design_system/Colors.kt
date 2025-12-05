@@ -46,3 +46,12 @@ object GlobalDealColors {
     val textAlt = Color(0xffFFFFFF)
     val discount = Color(0xff7C1414)
 }
+
+object StickyAdColors {
+    val surface = Color(0xffFFFFFF)
+    val textPrimary = Color(0xff041221)
+    val textSecondary = Color(0xff526881)
+    val textOnDiscount = Color(0xffFFFFFF).copy(alpha = .7f)
+    val textAlt = Color(0xffFFFFFF)
+    val outline = Color(0xffD8E4EA)
+}
