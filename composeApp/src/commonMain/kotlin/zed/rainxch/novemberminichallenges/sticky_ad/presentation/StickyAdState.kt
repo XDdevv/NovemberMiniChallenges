@@ -1,6 +1,7 @@
 package zed.rainxch.novemberminichallenges.sticky_ad.presentation
 
+import zed.rainxch.novemberminichallenges.sticky_ad.presentation.models.StickyAdList
+
 data class StickyAdState(
-    val paramOne: String = "default",
-    val paramTwo: List<String> = emptyList(),
+    val items: List<StickyAdList> = emptyList()
 )
